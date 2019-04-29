@@ -10,7 +10,6 @@ class Employee {
     this.address = address;
     this.phone = phone;
     this.zip = zip;
-    this.id = id;
   }
 
   convertBirthday(){
@@ -24,7 +23,7 @@ class Employee {
 
   makeEmployeeCard(){
     let employeeCard = '';
-    employeeCard += `<div class="card" id="${this.id}">`;
+    employeeCard += `<div class="card">`;
     employeeCard += `<div class="card-img-container">`;
     employeeCard += `<img class="card-img" src=${this.image} alt="${this.firstName} ${this.lastName} profile picture">
         </div>`;
@@ -40,7 +39,7 @@ class Employee {
   employeeModalDetail(){
     let modalDetail = '';
     modalDetail += `<img class="modal-img" src=${this.image} alt="profile picture">`;
-    modalDetail += `<h3 id="${this.id}" class="modal-name cap">${this.firstName} ${this.lastName}</h3>`;
+    modalDetail += `<h3 class="modal-name cap">${this.firstName} ${this.lastName}</h3>`;
     modalDetail += `<p class="modal-text">${this.email}</p>`;
     modalDetail += `<p class="modal-text cap">${this.city}</p>`;
     modalDetail += `<hr><p class="modal-text">${this.phone}</p>`;

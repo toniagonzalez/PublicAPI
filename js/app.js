@@ -113,10 +113,10 @@ $(document).on('click', '#modal-close-btn', function(e){
 //--Listener Modal 'Next' Button
 $(document).on('click', '#modal-next', function(e){
   let index;
-  if (currentIndex <visibleCards().length && currentIndex >= 0){
+  if (currentIndex <(visibleCards().length - 1) && currentIndex >= 0){
     index = currentIndex += 1;
   }
-  else if(currentIndex === visibleCards().length){
+  else if(currentIndex === (visibleCards().length -1)){
     currentIndex = -1;
     index = currentIndex += 1;
   }
@@ -160,7 +160,6 @@ fetch('https://randomuser.me/api?results=12&nat=US&inc=name,location,email,pictu
 
 //----Helper Functions
 function makeEmployeeArray(results){
-  let id = 0;
   let employeeList = results.map((employee)=> {
    return new Employee(
     employee.picture.large,
@@ -172,8 +171,7 @@ function makeEmployeeArray(results){
     employee.location.state,
     employee.location.street,
     employee.phone,
-    employee.location.postcode,
-    id+=1)
+    employee.location.postcode)
   });
   return employeeList;
 }
