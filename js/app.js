@@ -1,6 +1,13 @@
 //----- Search Bar Variables----//
 let cards = document.getElementsByClassName('card');
 
+// Create & Hide Message for No Results Found
+let message = document.createElement('P');
+message.innerText = 'No Results Found';
+message.className = 'message';
+$('#gallery').append(message);
+message.style.display = 'none';
+
 // Create Form Element
 const form = document.createElement('FORM');
 form.method = 'GET';
@@ -73,11 +80,14 @@ function detailArray(){
 //-----------------Listeners---------------//
 //--Listener for Submit button
 $('.search-container').on('click', 'input', function(e) {
+  let results = 0;
+  message.style.display = 'none';
   for (let i=0; i< cards.length; i++){
     let displayedCard = cards[i].style.display = 'inherit';
     if (cards[i].innerText.toLowerCase().includes(searchBar.value.toLowerCase())){
       cards[i].style.display = 'inherit';
       cards[i].classList.remove('hidden');
+      results +=1;
     }else {
       cards[i].style.display = 'none';
       cards[i].classList.add('hidden');
@@ -86,7 +96,11 @@ $('.search-container').on('click', 'input', function(e) {
     if(searchBar.value === '' && searchBar.activeElement) {
       cards[i].style.display = 'inherit';
       cards[i].classList.remove('hidden');
+      message.style.display = 'none';
     }
+  }
+  if(results === 0){
+    message.style.display = 'inherit';
   }
 });
 

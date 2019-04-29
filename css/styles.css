@@ -72,12 +72,12 @@ header h1 {
 		margin: -1px; padding: 0; border: 0;
 }
 
-.visible {
-	display: inherit;
-}
-
-.hidden {
-	display: none;
+.message {
+		color: #fff;
+		justify-content: center;
+		padding: 20px;
+		border-radius: 5px;
+		background-color: #1F1305; /*chocolate brown*/
 }
 
 /* =====================================
